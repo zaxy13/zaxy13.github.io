@@ -22,7 +22,7 @@
                             <form role="form">
                                 <div class="form-group">
                                     <label >WC:</label>
-                                    <input class="form-control " type="number" name="WC" id="wc">
+                                    <input class="form-control " type="number" step="0.1" min="0" name="WC" id="wc">
                                 </div>
                                 <div class="form-group">
                                     <label >Refrigerant:</label>
@@ -44,15 +44,15 @@
                             <form role="form">
                                 <div class="form-group">
                                     <label >herm amps:</label>
-                                    <input class="form-control " type="number" name="amp" id="amp">
+                                    <input class="form-control " type="number" step="0.1" min="0" name="amp" id="amp">
                                     <label >herm volts:</label>
-                                    <input class="form-control " type="number" name="volt" id="volt">
+                                    <input class="form-control " type="number" step="0.1" min="0" name="volt" id="volt">
                                 </div>
                                 <div class="form-group">
                                     <label >fan amps:</label>
-                                    <input class="form-control " type="number" name="amp" id="amp1">
+                                    <input class="form-control " type="number" step="0.1" min="0" name="amp" id="amp1">
                                     <label >fan volts:</label>
-                                    <input class="form-control " type="number" name="volt" id="volt1">
+                                    <input class="form-control " type="number" step="0.1" min="0" name="volt" id="volt1">
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="getCap()" value="Calc">Calc</button>
                             </form>
