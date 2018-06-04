@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Math 4 Me</title>
+        <style>
+            body, html, fieldset {
+                height: 100%;
+                display: grid;
+                font-family: sans-serif;
+            }
+            div {
+                margin: 10px auto;
+                width: 400px;
+            }
+            input , select{
+                width: 100%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="form">
+            <form>
+                <fieldset>
+                    <legend>Max Fill</legend>
+                    WC:<input type="number" name="WC" id="wc">
+                    <br>
+                    Refrigerant:<select name="refrigerant" id="refrigerant">
+                        <option value="1.21">R-22</option>
+                        <option value="1.08">R-410a</option>
+                        <!-- <option value="r407c">R-407c</option> -->
+                    </select>
+                    <br>
+                    <input type="button" onclick="getMax()" value="Calc">
+                </fieldset>
+            </form>
+            <form>
+                <fieldset>
+                        <legend>Live Load</legend>
+                        herm amps:<input type="number" name="amp" id="amp">
+                        herm volts:<input type="number" name="volt" id="volt"><br>
+                        fan amps:<input type="number" name="amp" id="amp1">
+                        fan volts:<input type="number" name="volt" id="volt1"><br>
+                        <input type="button" onclick="getCap()" value="Calc">
+                    </fieldset>
+            </form>
+        </div>
+
+
+
+        <script>
+            function getMax() {
+                let W = document.getElementById("wc").value;
+                let SG = document.getElementById("refrigerant").value;
+                let x = Math.round(W*0.8*SG*10)/10;
+                alert("max fill = "+x+"lbs");
+            }
+            function getCap() {
+                let amp = document.getElementById("amp").value;
+                let volt = document.getElementById("volt").value;
+                let amp1 = document.getElementById("amp1").value;
+                let volt1 = document.getElementById("volt1").value;
+                let x = Math.round((amp*2652/volt)*10)/10;
+                let y = Math.round((amp1*2652/volt1)*10)/10;
+                alert("herm = "+x+"mfd\nfan = "+y+"mfd");
+            }
+        </script>
+    </body>
+</html>
