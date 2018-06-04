@@ -1,49 +1,62 @@
 <html>
     <head>
         <title>Math 4 Me</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <style>
-            body, html, fieldset {
-                height: 100%;
-                display: grid;
-                font-family: sans-serif;
-            }
-            div {
-                margin: 10px auto;
-                width: 100%;
-            }
-            input , select{
-                width: 100%;
-                height: 50px;
-            }
-
+            body { padding-top: 70px; }
         </style>
     </head>
     <body>
-        <div class="form">
-            <form>
-                <fieldset>
-                    <legend>Max Fill</legend>
-                    WC:<input type="number" name="WC" id="wc">
-                    <br>
-                    Refrigerant:<select name="refrigerant" id="refrigerant">
-                        <option value="1.21">R-22</option>
-                        <option value="1.08">R-410a</option>
-                        <!-- <option value="r407c">R-407c</option> -->
-                    </select>
-                    <br>
-                    <input type="button" onclick="getMax()" value="Calc">
-                </fieldset>
-            </form>
-            <form>
-                <fieldset>
-                        <legend>Live Load</legend>
-                        herm amps:<input type="number" name="amp" id="amp">
-                        herm volts:<input type="number" name="volt" id="volt"><br>
-                        fan amps:<input type="number" name="amp" id="amp1">
-                        fan volts:<input type="number" name="volt" id="volt1"><br>
-                        <input type="button" onclick="getCap()" value="Calc">
-                    </fieldset>
-            </form>
+        <nav class="navbar fixed-top navbar-dark bg-primary">
+            <span class="navbar-brand mb-0 h1">Math 4 Me</span>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Max Fill</h5>
+                            <form role="form">
+                                <div class="form-group">
+                                    <label >WC:</label>
+                                    <input class="form-control " type="number" name="WC" id="wc">
+                                </div>
+                                <div class="form-group">
+                                    <label >Refrigerant:</label>
+                                    <select class="form-control " name="refrigerant" id="refrigerant">
+                                        <option value="1.21">R-22</option>
+                                        <option value="1.08">R-410a</option>
+                                        <!-- <option value="r407c">R-407c</option> -->
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="getMax()" value="Calc">Calc</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Live MFD Test</h5>
+                            <form role="form">
+                                <div class="form-group">
+                                    <label >herm amps:</label>
+                                    <input class="form-control " type="number" name="amp" id="amp">
+                                    <label >herm volts:</label>
+                                    <input class="form-control " type="number" name="volt" id="volt">
+                                </div>
+                                <div class="form-group">
+                                    <label >fan amps:</label>
+                                    <input class="form-control " type="number" name="amp" id="amp1">
+                                    <label >fan volts:</label>
+                                    <input class="form-control " type="number" name="volt" id="volt1">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="getCap()" value="Calc">Calc</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
