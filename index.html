@@ -4,7 +4,7 @@
         <title>Math 4 Me</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <style>
             body { padding-top: 70px; }
         </style>
@@ -32,7 +32,7 @@
                                         <!-- <option value="r407c">R-407c</option> -->
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="getMax()" value="Calc">Calc</button>
+                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="getMax()" value="Calc">Calc</button>
                             </form>
                         </div>
                     </div>
@@ -54,22 +54,52 @@
                                     <label >fan volts:</label>
                                     <input class="form-control " type="number" step="0.1" min="0" name="volt" id="volt1">
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="getCap()" value="Calc">Calc</button>
+                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="getCap()" value="Calc">Calc</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-
+            <div class="modal" tabindex="-1" role="dialog" id="myModal">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        
         <script>
             function getMax() {
-                let W = document.getElementById("wc").value;
-                let SG = document.getElementById("refrigerant").value;
+                let W = $("#wc").val();
+                let SG = $("#refrigerant").val();
                 let x = Math.round(W*0.8*SG*10)/10;
-                alert("max fill = "+x+"lbs");
+                console.log(W, SG,  x);
+
+                $('#myModal').on('show.bs.modal', function (event) {
+                    var modal = $(this)
+                    modal.find('.modal-title').text("Calc Max Fill");
+                    modal.find('.modal-body').text(x + " lbs");
+                });
+                $('#myModal').modal('show');
+                // alert("max fill = "+x+"lbs");
             }
             function getCap() {
                 let amp = document.getElementById("amp").value;
@@ -78,7 +108,15 @@
                 let volt1 = document.getElementById("volt1").value;
                 let x = Math.round((amp*2652/volt)*10)/10;
                 let y = Math.round((amp1*2652/volt1)*10)/10;
-                alert("herm = "+x+"mfd\nfan = "+y+"mfd");
+
+                 $('#myModal').on('show.bs.modal', function (event) {
+                    var modal = $(this)
+                    modal.find('.modal-title').text("Cap Readings");
+                    modal.find('.modal-body').html("herm = "+x+"mfd<br>fan = "+y+"mfd");
+                });
+                $('#myModal').modal('show');
+
+                // alert("herm = "+x+"mfd\nfan = "+y+"mfd");
             }
         </script>
     </body>
