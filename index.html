@@ -60,6 +60,30 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">On The Spot Quote$</h5>
+                            <form role="form">
+                                <div class="form-group">
+                                    <label >Hours:</label>
+                                    <input class="form-control " type="number" step="1" min="0" name="hour" id="hour">
+                                    <label >Rate:</label>
+                                    <input class="form-control " type="number" step="1" min="0" name="rate" id="rate">
+                                </div>
+                                <div class="form-group">
+                                    <label >Product Cost:</label>
+                                    <input class="form-control " type="number" step="1" min="0" name="cost" id="cost">
+                                    <label >Mark up:</label>
+                                    <input class="form-control " type="number" step="1" min="0" name="mark" id="mark">
+                                </div>
+                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="getQuote()" value="Calc">Calc</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
             <div class="modal" tabindex="-1" role="dialog" id="myModal">
@@ -117,6 +141,15 @@
                 $('#myModal').modal('show');
 
                 // alert("herm = "+x+"mfd\nfan = "+y+"mfd");
+            }
+            function getQuote() {
+
+                $('#myModal').on('show.bs.modal', function (event) {
+                    var modal = $(this)
+                    modal.find('.modal-title').text("Quote$");
+                    modal.find('.modal-body').html('<div class="alert alert-danger" role="alert">not yet working :(</div>');
+                });
+                $('#myModal').modal('show');
             }
         </script>
     </body>
