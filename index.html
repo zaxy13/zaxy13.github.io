@@ -75,7 +75,7 @@
                                 <div class="form-group">
                                     <label >Product Cost:</label>
                                     <input class="form-control " type="number" step="1" min="0" name="cost" id="cost">
-                                    <label >Mark up:</label>
+                                    <label >Mark up %:</label>
                                     <input class="form-control " type="number" step="1" min="0" name="mark" id="mark">
                                 </div>
                                 <button type="button" class="btn btn-primary btn-lg btn-block" onclick="getQuote()" value="Calc">Calc</button>
@@ -143,11 +143,21 @@
                 // alert("herm = "+x+"mfd\nfan = "+y+"mfd");
             }
             function getQuote() {
+                // god Im stupid, JS can and number to strings for some reason...
+                let hour = Number(document.getElementById("hour").value);
+                let rate = Number(document.getElementById("rate").value);
+                let cost = Number(document.getElementById("cost").value);
+                let mark = Number(document.getElementById("mark").value);
+
+                let labor = hour*rate;
+                let p = (mark/100)*cost;
+                let parts = p+cost;
+                let total = labor+parts;
 
                 $('#myModal').on('show.bs.modal', function (event) {
                     var modal = $(this)
                     modal.find('.modal-title').text("Quote$");
-                    modal.find('.modal-body').html('<div class="alert alert-danger" role="alert">not yet working :(</div>');
+                    modal.find('.modal-body').html('Labor = $'+labor+'<br>Parts = $'+parts+'<br>Total = $'+total);
                 });
                 $('#myModal').modal('show');
             }
