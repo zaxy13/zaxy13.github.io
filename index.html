@@ -21,11 +21,11 @@
                             <h5 class="card-title">Max Fill</h5>
                             <form role="form">
                                 <div class="form-group">
-                                    <label >WC:</label>
+                                    <label for="WC" >WC:</label>
                                     <input class="form-control " type="number" step="0.1" min="0" name="WC" id="wc">
                                 </div>
                                 <div class="form-group">
-                                    <label >Refrigerant:</label>
+                                    <label for="refrigerant">Refrigerant:</label>
                                     <select class="form-control " name="refrigerant" id="refrigerant">
                                         <option value="1.21">R-22</option>
                                         <option value="1.08">R-410a</option>
@@ -43,15 +43,15 @@
                             <h5 class="card-title">Live MFD Test</h5>
                             <form role="form">
                                 <div class="form-group">
-                                    <label >herm amps:</label>
+                                    <label for="amp" >herm amps:</label>
                                     <input class="form-control " type="number" step="0.1" min="0" name="amp" id="amp">
-                                    <label >herm volts:</label>
+                                    <label for="volt">herm volts:</label>
                                     <input class="form-control " type="number" step="0.1" min="0" name="volt" id="volt">
                                 </div>
                                 <div class="form-group">
-                                    <label >fan amps:</label>
+                                    <label for="amp">fan amps:</label>
                                     <input class="form-control " type="number" step="0.1" min="0" name="amp" id="amp1">
-                                    <label >fan volts:</label>
+                                    <label for="volt">fan volts:</label>
                                     <input class="form-control " type="number" step="0.1" min="0" name="volt" id="volt1">
                                 </div>
                                 <button type="button" class="btn btn-primary btn-lg btn-block" onclick="getCap()" value="Calc">Calc</button>
@@ -67,15 +67,15 @@
                             <h5 class="card-title">On The Spot Quote$</h5>
                             <form role="form">
                                 <div class="form-group">
-                                    <label >Hours:</label>
+                                    <label for="hours" >Hours:</label>
                                     <input class="form-control " type="number" step="1" min="0" name="hour" id="hour">
-                                    <label >Rate:</label>
+                                    <label for="rate">Rate:</label>
                                     <input class="form-control " type="number" step="1" min="0" name="rate" id="rate">
                                 </div>
                                 <div class="form-group">
-                                    <label >Product Cost:</label>
+                                    <label for="cost">Product Cost:</label>
                                     <input class="form-control " type="number" step="1" min="0" name="cost" id="cost">
-                                    <label >Mark up %:</label>
+                                    <label for="mark">Mark up %:</label>
                                     <input class="form-control " type="number" step="1" min="0" name="mark" id="mark">
                                 </div>
                                 <button type="button" class="btn btn-primary btn-lg btn-block" onclick="getQuote()" value="Calc">Calc</button>
